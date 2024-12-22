@@ -1,0 +1,119 @@
+﻿/* Variáveis de estilo */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #ffcccb;
+    --light-gray: #e9ecef;
+    --dark-gray: #343a40;
+    --text-light: #fff;
+    --text-dark: #333;
+}
+
+/* Estilo das células da tabela */
+.table th, .table td {
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    position: relative;
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Estilo dos horários */
+.occupied-time, .available-time, .selected-time {
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.occupied-time {
+    background-color: var(--error-color);
+    color: var(--text-dark);
+}
+
+.available-time {
+    background-color: var(--success-color);
+    color: var(--text-light);
+    transition: background-color 0.3s ease;
+}
+
+    .available-time:hover {
+        background-color: darken(var(--success-color), 10%);
+    }
+
+.selected-time {
+    background-color: var(--warning-color);
+    color: var(--text-light);
+}
+
+/* Estilo do calendário */
+#calendarBody td {
+    height: 100px;
+    width: 100px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/*    #calendarBody td.empty {
+        background-color: var(--light-gray);
+    }
+*/
+  /*  #calendarBody td[data-selected="true"] {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+    }*/
+/*
+.disabled-day {
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    pointer-events: none;
+}*/
+
+/* Estilo dos agendamentos */
+/*.appointments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    max-height: calc(3 * 30px);
+    padding: 0;
+    width: 100%;
+}*/
+
+/*.appointment, .occupied-time, .available-time {
+    height: 30px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+}*/
+
+/*.appointments-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.appointments-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+}*/
+
+/* Estilo da modal */
+/*.modal-header, .modal-footer {
+    background-color: #f1f1f1;
+    color: var(--text-dark);
+}*/

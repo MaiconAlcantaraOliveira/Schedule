@@ -1,0 +1,6 @@
+@BarberShopScheduler.Api_HostAddress = http://localhost:5211
+
+GET {{BarberShopScheduler.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
