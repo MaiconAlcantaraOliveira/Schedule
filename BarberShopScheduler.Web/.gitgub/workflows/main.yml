@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions:
+  content: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: production
+      url: ${{ steps.deplyment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .Net
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Install .Net Wasm Tools
+      run: dotnet workload install -g wasm-tools
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build -c Release --no-restore
+
+    - name: Publish
+      run: dotnet publish BarberShopScheduler.Web.csproj -c Release -o docs --no-logo
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload
+      uses: actions/upload-pages-artifact@v3
+
+    - name: Deploy
+      id: deployment
+      uses: actions/pages-deploy@v4
